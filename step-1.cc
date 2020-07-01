@@ -89,7 +89,12 @@ class StokesProblem
 template<int dim>
 void StokesProblem<dim>::run()
 {
+SparseDirectUMFPACK  A_direct;
+  A_direct.initialize(system_matrix);
 
+  A_direct.vmult (solution, system_rhs);
+
+  //solution = 0;  // testing Nav-Stokes with initial guess of zero
 }
 // @sect3{The main function}
 

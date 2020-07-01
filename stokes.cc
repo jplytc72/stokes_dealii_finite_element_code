@@ -75,4 +75,22 @@ class StokesProblem
       ConstraintMatrix        zero_press_node_constraint;
 };
 
+template<int dim>
+void StokesProblem<dim>::refine_grid()
+{
+  std::cout << "============================================================"
+            << std::endl
+            << "Globally refining domain..."
+            << std::endl
+            << "-------------------------------------------------------------"
+            << std::endl;
 
+  triangulation.refine_global(1);
+
+  std::cout << "-------------------------------------------------------------"
+            << std::endl
+            << "Completed Globally refining domain..."
+            << std::endl
+            << "============================================================"
+            << std::endl;
+}

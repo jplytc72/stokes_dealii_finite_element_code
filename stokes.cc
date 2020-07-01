@@ -76,3 +76,12 @@ class StokesProblem
 };
 
 
+template<int dim>
+StokesProblem<dim>::StokesProblem(const unsigned int degree)
+    :
+    degree(degree),
+    fe(FE_Q<dim>(degree+1), dim,
+    FE_Q<dim>(degree), 1), 
+    dof_handler(triangulation)
+{
+}
